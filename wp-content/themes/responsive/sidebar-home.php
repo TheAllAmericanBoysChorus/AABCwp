@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 ?>
 
 <div id="container-body-home">
-<?php responsive_widgets_before(); // above widgets container hook ?>
+	<?php responsive_widgets_before(); // above widgets container hook ?>
 		<div id="home_widget_1" class="grid col-620">
 			<?php responsive_widgets(); // above widgets hook ?>
 
@@ -43,14 +43,14 @@ if( !defined( 'ABSPATH' ) ) {
             <img src="<?php bloginfo( 'template_directory' )?>/core/images/L10013172.jpg"/>
     <?php
 
-	$args = array(
-		'post_type' => 'calendar',
-		'posts_per_page' => '1'
-	);
+		$args = array(
+			'post_type' => 'calendar',
+			'posts_per_page' => '1'
+		);
 
-	$the_query = new WP_Query( $args );
+		$the_query = new WP_Query( $args );
 
-?>
+	?>
 
 	<?php if( have_posts() ) : ?>
 
@@ -63,7 +63,7 @@ if( !defined( 'ABSPATH' ) ) {
 				<?php get_template_part( 'post-meta-page' ); ?>
 
 				<div class="post-entry">
-                            <hr />
+                    <hr />
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>
