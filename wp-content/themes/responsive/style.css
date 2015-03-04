@@ -524,7 +524,7 @@ ul li {
 }
 
 .post-entry ul {
-	padding: 15px 15px 0;
+	padding: 15px 0 0 0;
 }
 
 .wp-caption {
@@ -1156,13 +1156,17 @@ form div {
 
 .why-join1 {
 	float: left;
-	padding-right: 80px;
-	
+	width: 275px;
 }
 
 .why-join2 {
 	float: left;
-	padding-right: 80px;
+	width: 350px;
+}
+
+.why-join3 {
+	float: left;
+	width: 450px;
 }
 
 .testimonials-join-us p {
