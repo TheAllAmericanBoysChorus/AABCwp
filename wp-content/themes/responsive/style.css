@@ -747,6 +747,14 @@ form div {
 
 /* =Globals
 -------------------------------------------------------------- */
+.bottom-slider {
+	width: 100%;
+	margin-top: -101px;
+	z-index: 20;
+	position: relative;
+
+}
+
 #container {
 	margin: 0 auto;
 	max-width: 1200px;
@@ -1028,8 +1036,7 @@ form div {
 }
 
 .alumni-spotlight-video {
-	width:640px; 
-	height:320px; 
+	width:640px;
 	float:left; 
 	margin-right: 20px;
 	max-width: 100%;
