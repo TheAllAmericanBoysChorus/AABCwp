@@ -17,6 +17,26 @@
 		float: left;
 	}
 
+	.easingslider {
+		display: none;
+	}
+
+	.bottom-slider {
+		display: none;
+	}
+
+	#container-body-home {
+		margin-top: 0;
+	}
+
+	.widget-wrapper {
+		margin-top: 50px;
+	}
+
+	nav {
+		margin-bottom: 300px;
+	}
+
 	#featured-image .fluid-width-video-wrapper {
 		margin: 20px 0 0 0;
 	}
