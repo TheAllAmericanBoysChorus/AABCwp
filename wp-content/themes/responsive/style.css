@@ -571,6 +571,54 @@ blockquote p {
 /* =Home Page Tri Panel
 -------------------------------------------------------------- */
 
+.tab-panels ul {
+  margin: 0;
+  padding: 0;
+}
+
+.tab-panels ul li {
+  list-style-type: none;
+  display: inline-block;
+  background: #999;
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.tab-panels ul li:hover {
+  color: #fff;
+  background: #666;
+}
+
+tab-panels ul li.active {
+  color: #fff;
+  background: #666;
+}
+
+.tab-panels .panel {
+  display: none;
+  background: #eee;
+  box-shadow: 0px 1px 5px #aaa;
+  padding: 30px;
+  border-radius: 0 0 10px 10px;
+  height: 575px;
+}
+
+.tab-panels .panel.active {
+  display: block;
+}
+
+.up-coming-events-img {
+	float: left;
+	margin-right: 20px;
+	max-width: 200px;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 0 20px #ddd;
+}
 
 /* =Headings
 -------------------------------------------------------------- */
@@ -778,16 +826,6 @@ form div {
 	padding: 10px;
 	background: #fff;
 	box-shadow: 0px 0px 20px #ddd;
-}
-
-
-#container-body-home img {
-	padding: 10px;
-	background: #fff;
-	box-shadow: 0 0 20px #ddd;
-	max-width: 675px;
-    width: 100%;
-    margin-top: 20px;
 }
 
 .no-border {

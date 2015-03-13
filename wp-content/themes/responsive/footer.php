@@ -59,7 +59,7 @@ $responsive_options = responsive_get_options();
 	<?php responsive_footer_bottom(); ?>
 </div><!-- end #footer -->
 <?php responsive_footer_after(); ?>
-
+<script language="javascript" type="text/javascript" src="<?php bloginfo( 'template_directory' );?>/core/js/main.js"></script>
 <?php wp_footer(); ?>
 </footer>
 </body>

@@ -32,6 +32,7 @@ if( !defined( 'ABSPATH' ) ) {
 	<!--[if gt IE 9]><!-->
 <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
@@ -49,6 +50,7 @@ if( !defined( 'ABSPATH' ) ) {
 		<meta charset="<?php bloginfo( 'charset' ); ?>"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 		<title><?php wp_title( '&#124;', true, 'right' ); ?></title>
 
 		<link rel="profile" href="http://gmpg.org/xfn/11"/>
@@ -61,7 +63,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 <div class="top-header-element">
 	<img src="<?php bloginfo( 'template_directory' )?>/core/images/top-branding-element.jpg"/>
-</div><!--- end top-header-element --->
+</div><!--- end top-header-element -->
 
 <?php responsive_container(); // before container hook ?>
 <div id="container" class="hfeed">
@@ -131,8 +133,8 @@ if( !defined( 'ABSPATH' ) ) {
 			);
 			?>
 		<?php } ?>
-        </div><!--- End container --->
-        </div><!--- End nav --->
+        </div><!--- End container -->
+        </div><!--- End nav -->
 
 		<?php responsive_header_bottom(); // after header content hook ?>
 
