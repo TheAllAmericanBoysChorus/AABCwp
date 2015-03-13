@@ -1,34 +1,36 @@
-=== Easing Slider "Lite"  ===
+=== Easing Slider  ===
 Homepage: http://easingslider.com
 Contributors: MatthewRuddy
 Tags: slideshow, slider, slides, slide, gallery, images, image, responsive, mobile, jquery, javascript, featured, content
-Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 2.1.4.2
+Requires at least: 4.0
+Tested up to: 4.2
+Stable tag: 2.2.1.1
 
-Easing Slider "Lite" is an easy to use slider plugin. Simple and lightweight, built with native WordPress functionality.
+Easing Slider is an easy to use slider plugin. Simple and lightweight, is makes creating beautiful WordPress sliders a breeze.
 
 == Description ==
 
-Easing Slider "Lite" is an extremely easy to use slider plugin for WordPress. It is built to be lightweight and simple, with absolutely no bloat. It comes with many great features, some of which include:
+Easing Slider is an extremely easy to use slider plugin for WordPress. It is built to be lightweight and simple, enabling you to create beautiful sliders quickly and efficiently. It comes with many great features, some of which include:
 
 * Fully responsive & mobile ready
-* Lightweight, weighing just 16kb minified including styling
 * Bulk image uploading, integrated with new WordPress Media Library
-* CSS3 transitions for ultra smooth playback
+* CSS3 transitions for ultra smooth transitions
 * Navigation arrows & pagination
 * Preloading functionality on page load
 * A visual editor for customizing basic styling
 * Developer friendly with built-in Javascript events
+* Dozens of extensions that greatly enhance plugin functionality
 * Lots of actions & filters for custom functionality
 
-<a href="http://easingslider.com/upgrade-to-pro">Need more sliders? Looking for more features? Upgrade Easing Slider "Pro" here.</a>
+<strong>Easing Slider has many great extensions that can vastly enhance the plugin's functionality. <a href="http://easingslider.com/extensions">Browse them all here</a>.</strong>
 
-Throughly tested on iPhone, iPad and multiple Android devices, Easing Slider "Lite" is the perfect solution for mobile sliders. We've used CSS3 transitions to ensure ultra smooth transitions on all devices. The codebase is also extremely light (just 16kb), which is perfect for those concerned about page loading times.
+Throughly tested on iPhone, iPad and multiple Android devices, Easing Slider is the perfect solution for mobile sliders. We've used CSS3 animation to ensure ultra smooth transitions on supported devices, with graceful fallbacks for older browsers.
 
-We've also integrated the new WordPress Media Library workflow to provide a better media management experience. Bulk uploading images to your slider is now easy, requiring just a few clicks.
+We've also integrated the new WordPress Media Library workflow to provide a better media management experience. Similar to the Media Library, the learning curve and minimal and the admin interface feels instantly recognisable. Bulk uploading images to your slider is now easy, requiring just a few clicks.
 
-Last but not least, we've left plenty of opportunity for custom plugin modifications using the WordPress Action & Filter APIs. You can completely create your own external functionality, or modify the plugin to integrate perfectly with your current theme. Awesome!
+Last but not least, we've left plenty of opportunity for custom plugin modifications using the WordPress Action & Filter APIs. You can completely create your own external functionality, or purchase <a href="http://easingslider.com/extensions">one of our extensions</a> to avail of pre-built additional features.
+
+<strong>Follow & contribute to this plugin on <a href="https://github.com/easingslider/easing-slider">Github</a>.</strong>
 
 == Installation ==
 
@@ -36,22 +38,16 @@ Last but not least, we've left plenty of opportunity for custom plugin modificat
 To display the slider, you can use any of the following methods.
 
 **In a post/page:**
-Simply insert the shortcode below into the post/page to display the slider:
+Simply insert the shortcode below into the post/page to display the slider. Be sure to replace the "1" with the ID of the slider you wish to display.
 
-`[easingsliderlite]`
+`[easingslider id="1"]`
 
 **Function in template files (via php):**
-To insert the slider into your theme, add the following code to the appropriate theme file:
+To insert the slider into your theme, add the following code to the appropriate theme file. As above, replace the "1" with the ID of the slider you wish to display.
 
-`<?php if ( function_exists( "easingsliderlite" ) ) { easingsliderlite(); } ?>`
+`<?php if ( function_exists( "easingslider" ) ) { easingslider( 1 ); } ?>`
 
 == Frequently Asked Questions ==
-
-= I've upgraded from v1.x and my slides have disappeared. =
-
-Don't sweat! Simply navigate to the <strong>"Edit Slideshow"</strong> admin panel and click the <strong>"Import my Easing Slider v1.x settings"</strong> button. That's it! If you run into any trouble, don't hesitate to open a support topic, or have a look at the screencast below.
-
-<a href="http://cl.ly/1V0V411I1V09">Upgrading from v1.x</a>
 
 = My slider continually loads. What's wrong? =
 
@@ -63,19 +59,89 @@ If the slider works when it is the only plugin active, you're experiencing a plu
 
 After you've taken these two steps, make a support topic and we will get back to you as soon as you can. Otherwise, feel free to contact the developer(s) of the conflict plugin/theme also. They should also be able to provide you with assistance.
 
-= How do I edit a slide's settings? =
+= How can I edit a slide? =
 
-This is easy. When viewing the <strong>"Edit Slideshow"</strong> Easing Slider "Lite" admin panel, you should be able to see your slider images. To edit the settings of an individual slide, simply click it and its settings will appear in a modal window. Simple!
+This is easy. When editing a slider in the "All Sliders" admin area, simply click an individual slide thumbnail and it's settings panel will appear.
 
 == Screenshots ==
 
-1. The integrated Media Uploader. Use it to add images to your sliders one at a time, or in bulk.
-2. "Edit Slideshow" panel. Set your various slider settings here.
-3. "Settings" panel. Options for script & style loading, and image resizing features.
-4. The slider, in all its glory! Nice and clean, but easy to re-style if needed.
-5. Simply click a slide to edit its individual settings. This is the panel you will see.
+1. "All Sliders" admin page. This is where you manage your sliders.
+2. Preview of the "Edit Slider" panel.
+3. Modal window for managing the settings of an individual slide.
+4. Preview of the plugin "Settings" admin page.
+5. "Customize" admin page, which allows you to customize the styling of a slider.
+6. Browse available extensions for Easing Slider from the "Extensions" admin page.
+7. A preview of a slider. This is how is should appear on your WordPress site (may differ based on your settings).
 
 == Changelog ==
+
+= 2.2.1.1 =
+* Fixed “Maximum call stack exceeded” bug encountered when displaying multiple sliders on a single page.
+
+= 2.2.1 =
+* Added support for background images (found inside "Advanced Options" in "Dimensions" settings box).
+* Added support for 100% full width sliders (found inside "Advanced Options" in "Dimensions" settings box).
+* Added template function to "All Sliders" list table.
+* Added image resizing option to sliders, rather than globally on the "Settings" page. Image resizing can now be enabled on a per-slider basis.
+* Improved styling of sliders to accommodate new features and make it more versatile.
+* Improved support for mobile devices in Easing Slider admin area.
+* Added helper functions for determining what sliders have been rendered on the page.
+* Improved support for older versions of jQuery. Minimum version required is now jQuery v1.4.2.
+* Improved security by sanatizing keys where necessary and additional escaping of output. Better safe than sorry!
+* Improved "Extensions" page. Extensions are now remotely fetched from a feed on our server.
+* More minor improvements and fixes.
+
+= 2.2.0.8 =
+* Readded support for opening slide links in a new window/tab.
+* Added proper extension descriptions to "Extensions" panel.
+* Prepared plugin for video slide support.
+* Improved some actions and filters to better facilitate developers and other extensions.
+* Fixed issue where blank shadow image would display is shadow was enabled but no image was set.
+* Fixed issue that limited attachments query to 40 images only.
+* Fixed various bugs experienced by users.
+
+= 2.2.0.7 =
+* General improvements to cater for alternative slide types, such as videos or URL images.
+* Fixed a bug (related to above improvement) that would prevent slider from loading when slide didn't contain an image.
+* Fixed bug causing isolated jQuery errors when attempting to setup navigation elements that were disabled.
+* Transparent PNGs now play nicely.
+* Fixed some $_GET input validation security issues.
+* Improvded support for touch devices.
+* Added post type variable to slider object, allowing future extensions more flexibility.
+* Added support for HiDPI devices.
+* Fixed conflict with MooTools.
+
+= 2.2.0.6 =
+* Fixed z-index bug with dropdown menus in multiple themes.
+* Update manager is now fully working and querying extension updates correctly.
+* Fixed issue that caused slides to show up beneath transparent PNG's.
+* Fixed error displayed when trying to using the Easing Slider 'Lite' shortcode after deleting the "Lite" slider.
+* Fixed license key deactivation bug.
+* Added alt text attribute to images, which was missing previously.
+* Fixed double slashing bug with stylesheets and scripts.
+
+= 2.2.0.5 =
+* Fixed bug that prevented CSS and Javascripts from loading in certain circumstances.
+
+= 2.2.0.4 =
+* Added additional legacy functionality to display sliders using template function and shortcode from v1 of Easing Slider.
+
+= 2.2.0.3 =
+* Fixed compatibility issues with __callStatic and PHP 5.2.
+
+= 2.2.0.2 =
+* Fixed issues with legacy upgrades. Methods should now be prioritized correctly and flagged on completion appropriately.
+
+= 2.2.0.1 =
+* Fixed static bindings bug for users using less than PHP 5.3.
+
+= 2.2 =
+* Users can now have unlimited sliders (no longer limited to one).
+* New admin interface makes managing your sliders easier and quicker, and provides users with enhanced media management.
+* Under the hood, the plugin has been completely rebuilt to be faster, more extensible and future proof.
+
+= 2.1.4.3 =
+* Fixed issues with customizer and JSON encoding.
 
 = 2.1.4.2 =
 * Fixed widget title filter bug.

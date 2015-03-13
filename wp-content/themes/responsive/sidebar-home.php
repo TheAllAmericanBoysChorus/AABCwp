@@ -90,7 +90,46 @@ if( !defined( 'ABSPATH' ) ) {
 	endif;
 	?>
             <a href="taabc.org/calendar"><button class="home-calendar-btn">View Our Calendar</button></a>    	      
-      		</div> <!-- end of .col-700 fit -->
+
+<!-- Start Tri Panel -->
+
+    <div class="tab-panels">
+		<ul class="tabs">
+			<li rel="panel1" class="active">panel1</li>
+			<li rel="panel2">panel2</li>
+			<li rel="panel3">panel3</li>
+			<li rel="panel4">panel4</li>
+		</ul>
+
+		<div id="panel1" class="panel active">
+			content1<br />
+			content1<br />
+			content1<br />
+			content1<br />
+		</div>
+
+		<div id="panel2" class="panel">
+			content2<br />
+			content2<br />
+			content2<br />
+			content2<br />
+		</div>
+
+		<div id="panel3" class="panel">
+			content3<br />
+			content3<br />
+			content3<br />
+			content3<br />
+		</div>
+
+		<div id="panel4" class="panel">
+			content4<br />
+			content4<br />
+			content4<br />
+			content4<br />
+		</div>	
+	</div>
+</div> <!-- end of .col-700 fit -->
     
     <?php get_sidebar( 'home-sidebar' ); ?>
 <?php responsive_widgets_after(); // after widgets container hook ?>

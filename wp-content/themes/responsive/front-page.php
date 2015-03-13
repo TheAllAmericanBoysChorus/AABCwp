@@ -53,11 +53,11 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 	<?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
 
 	<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
-</div><!--- End wrapper --->
+</div><!--- End wrapper -->
     
 	<?php
-	get_sidebar( 'home' );
-	}
+		get_sidebar( 'home' );
+		}
 	?>
 
 <div style="clear:both;"></div>

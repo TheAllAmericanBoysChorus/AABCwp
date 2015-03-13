@@ -1,159 +1,197 @@
-;(function($) {
+/**
+ * Globalize
+ */
+window.EasingSlider = window.EasingSlider || { Customizer: { models: {}, views: {} } };
 
-    /** Customizations Model */
-    window.Customizations = Backbone.Model.extend({
+/**
+ * Where the magic happens!
+ */
+(function($) {
 
-        initialize: function() {
-            this.on('change', function() {
-                $('#customizations').val(JSON.stringify(this.attributes));
-            }, this);
-        }
+	var Customizer = window.EasingSlider.Customizer;
 
-    });
+	/**
+	 * Customizer View
+	 */
+	Customizer.views.Customizer = Backbone.View.extend({
 
-    /** Customize View */
-    window.CustomizeView = Backbone.View.extend({
+		/**
+		 * Our view element
+		 */
+		el: '.customize-container',
 
-        el: '#customize-container',
+		/**
+		 * Events
+		 */
+		events: {
+			'change #change-slider':          '_changeSlider',
+			'change [data-selector]':         '_reflectChanges',
+			'click .collapse-sidebar':        '_toggleSidebar',
+			'click .accordion-section-title': '_toggleSection'
+		},
 
-        events: {
-            'change': 'change'
-        },
+		/**
+		 * Constructor
+		 */
+		initialize: function() {
 
-        initialize: function() {
+			var view = this;
 
-            var self = this,
-                $items = {};
-
-            /** Title click functionality */
-            $('.customize-section-title').bind('click', function() {
-
-                var $parent = $(this).parent();
-                if ( !$parent.hasClass('open') ) {
-                    $('.customize-section').removeClass('open');
-                    $parent.addClass('open');
-                }
-                else
-                    $('.customize-section').removeClass('open');
-
-            });
-
-            /** Collapse function */
-            $('.collapse-sidebar').bind('click', function() {
-
-                /** Collapse/expand overlay */
-                var $overlay = $('.wp-full-overlay');
-                if ( $overlay.hasClass('expanded') )
-                    $overlay.removeClass('expanded').addClass('collapsed');
-                else
-                    $overlay.removeClass('collapsed').addClass('expanded');
-                
-            });
-
-            /** Inititiate color pickers */
-            $('.color-picker-hex').each(function() {
+            // Inititiate color pickers
+            this.$('.color-picker-hex').each(function() {
                 $(this).wpColorPicker({
-                    change: function(e) {
-                        self.change(e);
-                    },
+                	change:       view._reflectChanges,
                     defaultColor: $(this).attr('data-default')
                 });
             });
 
-        },
+		},
 
-        validate: function(changes, selector) {
+		/**
+		 * Changes the slider, reloading the page.
+		 */
+		_changeSlider: function(event) {
+			
+			// Redirect the page
+			window.location.href = 'http://'+ window.location.hostname + window.location.pathname + '?page=easingslider_manage_customizations&edit='+ event.target.value;
 
-            /** Loops through each change and validates */
-            for ( var prop in changes ) {
+		},
 
-                /** Background images */
-                if ( prop == 'background-image' )
-                    changes[prop] = 'url('+ changes[prop] +')';
+		/**
+		 * Reflects changes made to inputs on the provided selector.
+		 * This provides a live preview of the changes as they are made.
+		 */
+		_reflectChanges: function(event) {
 
-                /** Slideshow border width */
-                if ( prop == 'border-width' ) {
-                    changes['border-style'] = 'solid';
-                    $('.easingsliderlite-shadow').css({ 'margin-left': changes[prop] +'px' });
-                }
+			// Prefix and suffix the value as necessary
+			switch ( event.target.dataset.property ) {
 
-                /** Arrows height */
-                if ( prop == 'height' && selector == '.easingsliderlite-arrows' )
-                    changes['margin-top'] = '-'+ Math.floor( changes[prop] / 2 ) +'px';
+				case 'background-image':
+					$(event.target.dataset.selector).css({
+						'background-image': 'url('+ event.target.value +')'
+					});
+					break;
 
-                /** Enables/Disables the shadow */
-                if ( prop == 'shadow-enable' ) {
+				case 'border-width':
+					$(event.target.dataset.selector).css({
+						'border-style': 'solid',
+						'border-width': event.target.value +'px'
+					});
+					break;
 
-                    /** Display the shadow container */
-                    changes['display'] = ( changes[prop] == 'true' ) ? 'block' : 'none';
+				case 'border-radius':
+					$(event.target.dataset.selector).css({
+						'-webkit-border-radius': event.target.value +'px',
+						'-moz-border-radius':    event.target.value +'px',
+						'border-radius':         event.target.value +'px'
+					});
+					break;
 
-                    /** Append the image element if needed */
-                    if ( $('img', selector).length == 0 )
-                        $(selector).append('<img src="'+ $('input[data-property="shadow-image"]').val() +'" alt="" />');
+				case 'display':
+					if ( 'true' == event.target.value ) {
+						$(event.target.dataset.selector).css('display', 'block');
+					}
+					else {
+						$(event.target.dataset.selector).css('display', 'none');
+					}
+					break;
 
-                    /** Remove false CSS property */
-                    delete changes[prop];
+				case 'src':
+					$(event.target.dataset.selector).attr('src', event.target.value);
+					break;
 
-                }
+				default:
+					$(event.target.dataset.selector).css(event.target.dataset.property, event.target.value);
+					break;
 
-                /** Changes the shadow image */
-                if ( prop == 'shadow-image' ) {
+			}
 
-                    /** Change shadow image */
-                    $(selector).html('<img src="'+ changes[prop] +'" alt="" />');
+		},
 
-                    /** Remove false CSS property */
-                    delete changes[prop];
+		/**
+		 * Toggles the sidebar
+		 */
+		_toggleSidebar: function(event) {
 
-                }
+			event.preventDefault();
 
-                /** Apply "px" to end of pixel-based values */
-                if ( prop == 'width' || prop == 'height' || prop == 'border-width' || prop == 'border-radius' )
-                    changes[prop] = changes[prop] +'px';
+			// Expand/collapse the sidebar
+			if ( this.$('.wp-full-overlay').hasClass('expanded') ) {
+				this.$('.wp-full-overlay').removeClass('expanded').addClass('collapsed');
+			}
+			else {
+				this.$('.wp-full-overlay').removeClass('collapsed').addClass('expanded');
+			}
 
-            }
+		},
 
-            return changes;
+		/**
+		 * Toggles a section
+		 */
+		_toggleSection: function(event) {
 
-        },
+			event.preventDefault();
 
-        change: function(e) {
+			// Loop through and toggle each section appropriately
+			this.$('.accordion-section-title').each(function() {
 
-            /** Hack, but it works */
-            var split = e.target.name.split('['),
-                parent = split[0],
-                child = split[1].replace(']', ''),
-                values = this.model.get(parent),
-                attributes = {},
-                changes = {};
+				// Get the inside
+				var $section = $(this).closest('.accordion-section'),
+					$inside  = $section.find('.accordion-section-content');
 
-            /** Set model attributes (had to manually trigger "change" event as it wasn't firing, unsure why) */
-            values[child] = e.target.value;
-            attributes[parent] = values;
-            this.model.set(attributes).trigger('change');
+				// Determine if this is the clicked section, or another section.
+				if ( this == event.currentTarget ) {
 
-            /** Set our CSS changes */
-            changes[e.target.dataset.property] = e.target.value;
+					// If the clicked section is already open, close it. Otherwise, open it.
+					if ( $section.hasClass('open') ) {
 
-            /** Reflect changes on slideshow */
-            $(e.target.dataset.selector).css(this.validate(changes, e.target.dataset.selector));
+						// "Slide Up" the section content then close it entirely
+						$inside.slideUp({
+							duration: 'fast',
+							easing:   'linear',
+							complete: function() {
+								$section.removeClass('open');
+							}
+						});
 
-        },
+					}
+					else {
 
-        render: function() {
+						// Open the section
+						$section.addClass('open');
 
-            /** Show the view */
-            this.$el.find('.wp-full-overlay').animate({ 'opacity': 1 }, { duration: 200 });
-            
-        }
+						// "Slide Down" the content
+						$inside.css({ 'display': 'none' }).slideDown('fast');
 
-    });
+					}
+				}
+				else {
 
-    /** Let's go! */
-    $(document).ready(function() {
-        window.customizeView = new CustomizeView({
-            model: new Customizations(JSON.parse($('#customizations').val()))
-        }).render();
-    });
+					// "Slide Up" the section content then close it entirely					
+					$inside.slideUp({
+						duration: 'fast',
+						easing:   'linear',
+						complete: function() {
+							$section.removeClass('open');
+						}
+					});
+
+				}
+
+			});
+
+		}
+
+	});
+
+	/**
+	 * Let's go!
+	 */
+	$(document).ready(function() {
+
+		// Initiate the view
+		new Customizer.views.Customizer();
+
+	});
 
 })(jQuery);
