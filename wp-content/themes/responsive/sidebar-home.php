@@ -126,9 +126,8 @@ if( !defined( 'ABSPATH' ) ) {
 					<div id="post-<?php the_ID(); ?>"<?php post_class(); ?>>
 						<?php responsive_entry_top(); ?>
 
-						<?php get_template_part( 'post-meta-page' ); ?>
-
 						<div class="post-entry">
+							<div class="quotation-mark">"</div>
 							<div class="testimonial-content"><?php the_field('testimonial'); ?></div>
 							<div class="testimonial-name">- <?php the_field('name'); ?></div>
 							<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
@@ -177,16 +176,14 @@ if( !defined( 'ABSPATH' ) ) {
 			<?php if( have_posts() ) : ?>
 
 				<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-					<?php responsive_entry_before(); ?>
-					<div id="post-<?php the_ID(); ?>"<?php post_class(); ?>>
-						<?php responsive_entry_top(); ?>
-
-						<?php get_template_part( 'post-meta-page' ); ?>
-
+		
 						<div class="post-entry">
-							<?php the_field('youtube_video'); ?>
-							<?php the_field('biography'); ?>
+
+							<div class="alumni-spotlight-img">
+								<img src="<?php the_field('image'); ?>" >
+							</div>
+
+							<?php the_field('description'); ?>
 							<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 						</div>
 						<!-- end of .post-entry -->
