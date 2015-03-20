@@ -571,6 +571,10 @@ blockquote p {
 /* =Home Page Tri Panel
 -------------------------------------------------------------- */
 
+.tab-panels {
+	margin-top: 50px;
+}
+
 .tab-panels ul {
   margin: 0;
   padding: 0;
@@ -607,6 +611,7 @@ tab-panels ul li.active {
   padding: 30px;
   border-radius: 0 10px 10px 10px;
   height: auto;
+  overflow: hidden;
 }
 
 .panel h1 {

@@ -76,18 +76,9 @@ if( !defined( 'ABSPATH' ) ) {
 
 						<div class="post-entry">
 							<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-							<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 						</div>
 						<!-- end of .post-entry -->
-
-						
-						<?php responsive_entry_bottom(); ?>
 					</div><!-- end of #post-<?php the_ID(); ?> -->
-					<?php responsive_entry_after(); ?>
-
-					<?php responsive_comments_before(); ?>
-					<?php comments_template( '', true ); ?>
-					<?php responsive_comments_after(); ?>
 
 				<?php
 				endwhile;
@@ -127,21 +118,12 @@ if( !defined( 'ABSPATH' ) ) {
 						<?php responsive_entry_top(); ?>
 
 						<div class="post-entry">
-							<div class="quotation-mark">"</div>
+						<div class="quotation-mark">"</div>
 							<div class="testimonial-content"><?php the_field('testimonial'); ?></div>
 							<div class="testimonial-name">- <?php the_field('name'); ?></div>
-							<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 						</div>
 						<!-- end of .post-entry -->
-
-						
-						<?php responsive_entry_bottom(); ?>
 					</div><!-- end of #post-<?php the_ID(); ?> -->
-					<?php responsive_entry_after(); ?>
-
-					<?php responsive_comments_before(); ?>
-					<?php comments_template( '', true ); ?>
-					<?php responsive_comments_after(); ?>
 
 				<?php
 				endwhile;
@@ -184,18 +166,9 @@ if( !defined( 'ABSPATH' ) ) {
 							</div>
 
 							<?php the_field('description'); ?>
-							<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 						</div>
 						<!-- end of .post-entry -->
-
-						
-						<?php responsive_entry_bottom(); ?>
 					</div><!-- end of #post-<?php the_ID(); ?> -->
-					<?php responsive_entry_after(); ?>
-
-					<?php responsive_comments_before(); ?>
-					<?php comments_template( '', true ); ?>
-					<?php responsive_comments_after(); ?>
 
 				<?php
 				endwhile;
