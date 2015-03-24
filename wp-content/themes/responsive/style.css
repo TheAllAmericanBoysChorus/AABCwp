@@ -659,6 +659,13 @@ tab-panels ul li.active {
 	margin-bottom: -22px;
 }
 
+.double-button {
+}
+
+.double-button li:before {
+	content: none !important;
+}
+
 /* =Home Page Tri Panel / Testimonials Tab
 -------------------------------------------------------------- */
 

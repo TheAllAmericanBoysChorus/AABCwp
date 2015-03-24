@@ -40,7 +40,7 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta-page' ); ?>
 
 				<div class="post-entry">
-                            <hr />
+                <hr />
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>
@@ -67,7 +67,9 @@ get_header(); ?>
 
 	endif;
 	?>
-
+</div>
+</div>
+</div>
 </div>
 
 <?php get_sidebar( 'calendar' ); ?>
