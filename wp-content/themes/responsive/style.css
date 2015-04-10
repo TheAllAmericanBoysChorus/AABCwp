@@ -519,6 +519,10 @@ ul li {
 	list-style: none;
 }
 
+.post-title {
+	padding-top: 40px;
+}
+
 .post-entry ul li::before {
 	content: url(core/images/BULLET.jpg);
 	
@@ -891,6 +895,12 @@ form div {
     padding: 0 !important;
     background: none !important;
     width:200px !important;
+}
+
+.no-border-img {
+	box-shadow: none !important;
+    padding: 0 !important;
+    background: none !important;
 }
 
 #container-body-home {
